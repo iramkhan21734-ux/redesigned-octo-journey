@@ -34,14 +34,14 @@ jobs:
         run: |
           Add-Type -AssemblyName System.Security
           $charSet = @{
-              Upper   = [char[]](65..90)      # A-D
+            
               Lower   = [char[]](97..122)     # a-k
               Number  = [char[]](48..57)      # 0-9
               Special = ([char[]](33..47) + [char[]](58..64))
       
           }
           $rawPassword = @()
-          $rawPassword += $charSet.Upper | Get-Random -Count 2
+         
           $rawPassword += $charSet.Lower | Get-Random -Count 2
           $rawPassword += $charSet.Number | Get-Random -Count 2
           $password = -join ($rawPassword | Sort-Object { Get-Random })
